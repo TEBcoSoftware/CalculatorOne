@@ -47,6 +47,7 @@ namespace CalculatorOne
             HelpForm.Show();
         }
 
+        //A region containing events for input buttons being clicked
         #region buttonInput
 
         private void button1_Click(object sender, EventArgs e)
@@ -136,6 +137,7 @@ namespace CalculatorOne
 
         #endregion
 
+        //A function for changing the currently displayed number -- TBI after-decimal changes
         private void ChangeHeldNumber(int number)
         {
             if (JustEquated == true)
@@ -154,6 +156,7 @@ namespace CalculatorOne
             JustEquated = false;
         }
 
+        //A function for preparing and operation for execution
         private void PerformOperation(byte OperationNum)
         {
             lastHeldNumber = HeldNumber;
@@ -164,6 +167,7 @@ namespace CalculatorOne
             JustEquated = false;
         }
 
+        //Clears the display (When the clear button is pressed)
         private void ClearDisplay()
         {
             lastHeldNumber = HeldNumber;
@@ -172,6 +176,7 @@ namespace CalculatorOne
             RefreshDisplay();
         }
 
+        //Takes the two held numbers and performs chosen operation on them
         private void Equate()
         {
             float tempHold;
@@ -211,6 +216,7 @@ namespace CalculatorOne
             JustEquated = true;
         }
 
+        //Refreshes user's display
         private void RefreshDisplay()
         {
             displayTextBox.Text = HeldNumber.ToString();
