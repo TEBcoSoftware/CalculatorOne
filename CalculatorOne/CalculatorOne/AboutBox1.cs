@@ -102,8 +102,10 @@ namespace CalculatorOne
         }
         #endregion
 
+        //Event for if the OK button is clicked
         private void okButton_Click(object sender, EventArgs e)
         {
+            //Makes the form go away
             this.Hide();
         }
     }
