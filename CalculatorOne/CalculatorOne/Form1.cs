@@ -125,6 +125,11 @@ namespace CalculatorOne
             PerformOperation(4);
         }
 
+        private void buttonMod_Click(object sender, EventArgs e)
+        {
+            PerformOperation(5);
+        }
+
         private void buttonEquals_Click(object sender, EventArgs e)
         {
             Equate();
@@ -173,6 +178,7 @@ namespace CalculatorOne
             lastHeldNumber = HeldNumber;
             HeldNumber = 0;
             HeldNumberInDecimal = false;
+            JustEquated = false;
             RefreshDisplay();
         }
 
@@ -221,5 +227,6 @@ namespace CalculatorOne
         {
             displayTextBox.Text = HeldNumber.ToString();
         }
+
     }
 }

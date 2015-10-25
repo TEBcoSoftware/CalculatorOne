@@ -54,6 +54,7 @@
             this.buttonDiv = new System.Windows.Forms.Button();
             this.buttonEquals = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonMod = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainMenu1
@@ -293,11 +294,23 @@
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
+            // buttonMod
+            // 
+            this.buttonMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonMod.Location = new System.Drawing.Point(236, 94);
+            this.buttonMod.Name = "buttonMod";
+            this.buttonMod.Size = new System.Drawing.Size(50, 50);
+            this.buttonMod.TabIndex = 18;
+            this.buttonMod.Text = "Mod";
+            this.buttonMod.UseVisualStyleBackColor = true;
+            this.buttonMod.Click += new System.EventHandler(this.buttonMod_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 538);
+            this.Controls.Add(this.buttonMod);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonEquals);
             this.Controls.Add(this.buttonDiv);
@@ -354,6 +367,7 @@
         private System.Windows.Forms.Button buttonDiv;
         private System.Windows.Forms.Button buttonEquals;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonMod;
     }
 }
 
