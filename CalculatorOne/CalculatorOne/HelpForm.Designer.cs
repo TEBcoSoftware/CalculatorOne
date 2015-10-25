@@ -62,6 +62,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "HelpForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Help Form";
             this.Load += new System.EventHandler(this.HelpForm_Load);
             this.ResumeLayout(false);

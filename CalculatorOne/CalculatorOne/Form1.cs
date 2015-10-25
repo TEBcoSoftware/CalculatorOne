@@ -12,6 +12,8 @@ namespace CalculatorOne
 {
     public partial class Form1 : Form
     {
+        public float HeldNumber;
+
         public Form1()
         {
             InitializeComponent();
@@ -40,5 +42,7 @@ namespace CalculatorOne
             //Makes the Help Form Appear
             HelpForm.Show();
         }
+
+
     }
 }
