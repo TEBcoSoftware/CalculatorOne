@@ -57,16 +57,16 @@
             this.buttonMod = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BaseConvertInput = new System.Windows.Forms.TextBox();
-            this.BaseConvertBaseInput = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.BaseConvertBaseOutput = new System.Windows.Forms.NumericUpDown();
             this.BaseConvertOutput = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BaseConvertBaseInput = new System.Windows.Forms.NumericUpDown();
+            this.BaseConvertInput = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BaseConvertBaseInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BaseConvertBaseOutput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BaseConvertBaseInput)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu1
@@ -360,29 +360,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Base Conversions";
             // 
-            // BaseConvertInput
+            // BaseConvertBaseOutput
             // 
-            this.BaseConvertInput.Location = new System.Drawing.Point(6, 36);
-            this.BaseConvertInput.Name = "BaseConvertInput";
-            this.BaseConvertInput.Size = new System.Drawing.Size(179, 20);
-            this.BaseConvertInput.TabIndex = 0;
+            this.BaseConvertBaseOutput.Location = new System.Drawing.Point(191, 79);
+            this.BaseConvertBaseOutput.Name = "BaseConvertBaseOutput";
+            this.BaseConvertBaseOutput.Size = new System.Drawing.Size(54, 20);
+            this.BaseConvertBaseOutput.TabIndex = 5;
+            this.BaseConvertBaseOutput.TabStop = false;
+            this.BaseConvertBaseOutput.ValueChanged += new System.EventHandler(this.BaseConvertBaseOutput_ValueChanged);
             // 
-            // BaseConvertBaseInput
+            // BaseConvertOutput
             // 
-            this.BaseConvertBaseInput.Location = new System.Drawing.Point(191, 36);
-            this.BaseConvertBaseInput.Name = "BaseConvertBaseInput";
-            this.BaseConvertBaseInput.Size = new System.Drawing.Size(54, 20);
-            this.BaseConvertBaseInput.TabIndex = 1;
-            this.BaseConvertBaseInput.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "From";
+            this.BaseConvertOutput.Location = new System.Drawing.Point(6, 79);
+            this.BaseConvertOutput.Name = "BaseConvertOutput";
+            this.BaseConvertOutput.Size = new System.Drawing.Size(179, 20);
+            this.BaseConvertOutput.TabIndex = 4;
             // 
             // label2
             // 
@@ -393,20 +385,29 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "To";
             // 
-            // BaseConvertBaseOutput
+            // label1
             // 
-            this.BaseConvertBaseOutput.Location = new System.Drawing.Point(191, 79);
-            this.BaseConvertBaseOutput.Name = "BaseConvertBaseOutput";
-            this.BaseConvertBaseOutput.Size = new System.Drawing.Size(54, 20);
-            this.BaseConvertBaseOutput.TabIndex = 5;
-            this.BaseConvertBaseOutput.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "From";
             // 
-            // BaseConvertOutput
+            // BaseConvertBaseInput
             // 
-            this.BaseConvertOutput.Location = new System.Drawing.Point(6, 79);
-            this.BaseConvertOutput.Name = "BaseConvertOutput";
-            this.BaseConvertOutput.Size = new System.Drawing.Size(179, 20);
-            this.BaseConvertOutput.TabIndex = 4;
+            this.BaseConvertBaseInput.Location = new System.Drawing.Point(191, 36);
+            this.BaseConvertBaseInput.Name = "BaseConvertBaseInput";
+            this.BaseConvertBaseInput.Size = new System.Drawing.Size(54, 20);
+            this.BaseConvertBaseInput.TabIndex = 1;
+            this.BaseConvertBaseInput.TabStop = false;
+            // 
+            // BaseConvertInput
+            // 
+            this.BaseConvertInput.Location = new System.Drawing.Point(6, 36);
+            this.BaseConvertInput.Name = "BaseConvertInput";
+            this.BaseConvertInput.Size = new System.Drawing.Size(179, 20);
+            this.BaseConvertInput.TabIndex = 0;
             // 
             // Form1
             // 
@@ -425,8 +426,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BaseConvertBaseInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BaseConvertBaseOutput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BaseConvertBaseInput)).EndInit();
             this.ResumeLayout(false);
 
         }

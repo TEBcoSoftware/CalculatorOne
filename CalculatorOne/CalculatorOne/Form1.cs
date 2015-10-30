@@ -17,7 +17,12 @@ namespace CalculatorOne
         public bool HeldNumberInDecimal = false; //Have we pressed the decimal button yet on the current held number
         public byte CurOp; //The current opperation we're going to perform  (1 is add, 2 is sub, 3 is mult, 4 is div, 5 will be mod)
         public bool JustEquated = false; //Has the user's last action been an equation
-
+        public int baseStartBase;
+        public int findStart = -1;
+        public int baseStartNumber;
+        public bool countin = true;
+        public int countDown;
+        
         public Form1()
         {
             InitializeComponent();
@@ -228,5 +233,19 @@ namespace CalculatorOne
             displayTextBox.Text = HeldNumber.ToString();
         }
 
+        private void BaseConvertBaseOutput_ValueChanged(object sender, EventArgs e)
+        {
+            baseStartBase = (int)BaseConvertBaseOutput.Value;
+            while (countin);
+            {
+                findStart ++;
+                if (Math.Pow(baseStartBase, findStart) >= baseStartNumber);
+                {
+                    findStart = findStart - 1;
+
+
+                }
+            }
+        }
     }
 }
