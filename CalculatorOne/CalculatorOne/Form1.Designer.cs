@@ -367,6 +367,7 @@
             this.BaseConvertBaseOutput.Size = new System.Drawing.Size(54, 20);
             this.BaseConvertBaseOutput.TabIndex = 5;
             this.BaseConvertBaseOutput.TabStop = false;
+            this.BaseConvertBaseOutput.ValueChanged += new System.EventHandler(this.BaseConvertBaseOutput_ValueChanged);
             // 
             // BaseConvertOutput
             // 
