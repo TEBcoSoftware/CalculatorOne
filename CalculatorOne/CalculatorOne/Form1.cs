@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace CalculatorOne
         public bool HeldNumberInDecimal = false; //Have we pressed the decimal button yet on the current held number
         public byte CurOp; //The current opperation we're going to perform  (1 is add, 2 is sub, 3 is mult, 4 is div, 5 will be mod)
         public bool JustEquated = false; //Has the user's last action been an equation
+        public List<int> BaseConversionInputInts = new List<int>(); //The value of every digit in the base conversion input
+        public bool invalidBaseInput = false; //Is the base conversion input not valid
 
         public Form1()
         {
@@ -226,6 +229,142 @@ namespace CalculatorOne
         private void RefreshDisplay()
         {
             displayTextBox.Text = HeldNumber.ToString();
+        }
+
+        //Grabs the digits from the Base Conversion Input and stores them in an array
+        private void GetBaseInputDigits()
+        {
+            string input = BaseConvertInput.Text;
+            char[] b = new char[input.Length];
+            
+            using (StringReader sr = new StringReader(input))
+            {
+                // Read 13 characters from the string into the array.
+                sr.Read(b, 0, input.Length);
+            }
+
+            for (int i = 0; i < input.Length; i++)
+            {
+#region BigSwitch
+                switch (b[i])
+                {
+                    case '0':
+                        BaseConversionInputInts.Add(0);
+                    break;
+                    case '1':
+                        BaseConversionInputInts.Add(1);
+                    break;
+                    case '2':
+                        BaseConversionInputInts.Add(2);
+                    break;
+                    case '3':
+                        BaseConversionInputInts.Add(3);
+                    break;
+                    case '4':
+                        BaseConversionInputInts.Add(4);
+                    break;
+                    case '5':
+                        BaseConversionInputInts.Add(5);
+                    break;
+                    case '6':
+                        BaseConversionInputInts.Add(6);
+                    break;
+                    case '7':
+                        BaseConversionInputInts.Add(7);
+                    break;
+                    case '8':
+                        BaseConversionInputInts.Add(8);
+                    break;
+                    case '9':
+                        BaseConversionInputInts.Add(9);
+                    break;
+                    case 'A':
+                        BaseConversionInputInts.Add(10);
+                    break;
+                    case 'B':
+                        BaseConversionInputInts.Add(11);
+                    break;
+                    case 'C':
+                        BaseConversionInputInts.Add(12);
+                    break;
+                    case 'D':
+                        BaseConversionInputInts.Add(13);
+                    break;
+                    case 'E':
+                        BaseConversionInputInts.Add(14);
+                    break;
+                    case 'F':
+                        BaseConversionInputInts.Add(15);
+                    break;
+                    case 'G':
+                        BaseConversionInputInts.Add(16);
+                    break;
+                    case 'H':
+                        BaseConversionInputInts.Add(17);
+                    break;
+                    case 'I':
+                        BaseConversionInputInts.Add(18);
+                    break;
+                    case 'J':
+                        BaseConversionInputInts.Add(19);
+                    break;
+                    case 'K':
+                        BaseConversionInputInts.Add(20);
+                    break;
+                    case 'L':
+                        BaseConversionInputInts.Add(21);
+                    break;
+                    case 'M':
+                        BaseConversionInputInts.Add(22);
+                    break;
+                    case 'N':
+                        BaseConversionInputInts.Add(23);
+                    break;
+                    case 'O':
+                        BaseConversionInputInts.Add(24);
+                    break;
+                    case 'P':
+                        BaseConversionInputInts.Add(25);
+                    break;
+                    case 'Q':
+                        BaseConversionInputInts.Add(26);
+                    break;
+                    case 'R':
+                        BaseConversionInputInts.Add(27);
+                    break;
+                    case 'S':
+                        BaseConversionInputInts.Add(28);
+                    break;
+                    case 'T':
+                        BaseConversionInputInts.Add(29);
+                    break;
+                    case 'U':
+                        BaseConversionInputInts.Add(30);
+                    break;
+                    case 'V':
+                        BaseConversionInputInts.Add(31);
+                    break;
+                    case 'W':
+                        BaseConversionInputInts.Add(32);
+                    break;
+                    case 'X':
+                        BaseConversionInputInts.Add(33);
+                    break;
+                    case 'Y':
+                        BaseConversionInputInts.Add(34);
+                    break;
+                    case 'Z':
+                        BaseConversionInputInts.Add(35);
+                    break;
+                }
+#endregion
+            }
+            
+        }
+
+        private void BaseConvertInput_TextChanged(object sender, EventArgs e)
+        {
+            GetBaseInputDigits();
         }
 
     }
