@@ -18,11 +18,9 @@ namespace CalculatorOne
         public bool HeldNumberInDecimal = false; //Have we pressed the decimal button yet on the current held number
         public byte CurOp; //The current opperation we're going to perform  (1 is add, 2 is sub, 3 is mult, 4 is div, 5 will be mod)
         public bool JustEquated = false; //Has the user's last action been an equation
-        public int baseStartBase;
-        public int baseStartNumber;
-        public int countDown;
         public List<int> BaseConversionInputInts = new List<int>(); //The value of every digit in the base conversion input
         public bool invalidBaseInput = false; //Is the base conversion input not valid
+        public int baseConvertionOutput; //The int representing the desired output of the base conversion
 
         public Form1()
         {
@@ -252,6 +250,8 @@ namespace CalculatorOne
         //Grabs the digits from the Base Conversion Input and stores them in an array
         private void GetBaseInputDigits()
         {
+            BaseConversionInputInts = new List<int>();
+
             string input = BaseConvertInput.Text;
             char[] b = new char[input.Length];
             
@@ -380,9 +380,41 @@ namespace CalculatorOne
             
         }
 
+        private void ConvertToBaseTen()
+        {
+            baseConvertionOutput = 0;
+            int topNumber = BaseConversionInputInts.Count - 1;
+            topNumber = BaseConversionInputInts.Count - 1;
+            int topNumberDown = BaseConversionInputInts.Count - 1;
+            topNumberDown = BaseConversionInputInts.Count - 1;
+            int totalPlace = 0;
+            totalPlace = 0;
+            int startBase = GetStartBase();
+
+            for (int basePower = 0; basePower <= topNumber; basePower++)
+            {
+                totalPlace += BaseConversionInputInts[topNumberDown] * (int)Math.Pow(startBase, basePower);
+                topNumberDown--;
+            }
+
+            baseConvertionOutput = totalPlace;
+        }
+
+        private int GetStartBase()
+        {
+            int baseBaseInput = (int)BaseConvertBaseInput.Value;
+            if (baseBaseInput > 36||baseBaseInput <= 0)
+            {
+                return 10;
+            }
+            return baseBaseInput;
+        }
+
         private void BaseConvertInput_TextChanged(object sender, EventArgs e)
         {
             GetBaseInputDigits();
+            ConvertToBaseTen();
+            BaseConvertOutput.Text = baseConvertionOutput.ToString();
         }
 
          private void BaseConvertBaseOutput_ValueChanged(object sender, EventArgs e)  
