@@ -13,8 +13,8 @@ namespace CalculatorOne
 {
     public partial class Form1 : Form
     {
-        public float HeldNumber; //The number we are currently inputting/ans
-        public float lastHeldNumber; //The last number we inputted
+        public decimal HeldNumber; //The number we are currently inputting/ans
+        public decimal lastHeldNumber; //The last number we inputted
         public bool HeldNumberInDecimal = false; //Have we pressed the decimal button yet on the current held number
         public byte CurOp; //The current opperation we're going to perform  (1 is add, 2 is sub, 3 is mult, 4 is div, 5 will be mod)
         public bool JustEquated = false; //Has the user's last action been an equation
@@ -153,16 +153,24 @@ namespace CalculatorOne
         //A function for changing the currently displayed number -- TBI after-decimal changes
         private void ChangeHeldNumber(int number)
         {
-            if (JustEquated == true)
+            try
             {
-                lastHeldNumber = HeldNumber;
-                HeldNumber = 0;
-                HeldNumberInDecimal = false;
+                if (JustEquated == true)
+                {
+                    lastHeldNumber = HeldNumber;
+                    HeldNumber = 0;
+                    HeldNumberInDecimal = false;
+                }
+                if (HeldNumberInDecimal == false)
+                {
+                    HeldNumber *= 10;
+                    HeldNumber += number;
+                }
             }
-            if (HeldNumberInDecimal == false)
+            catch (System.OverflowException e)
             {
-                HeldNumber *= 10f;
-                HeldNumber += number;
+                // The following line displays information about the error.
+                Console.WriteLine("OVERFLOW:  " + e.ToString());
             }
 
             RefreshDisplay();
@@ -193,7 +201,7 @@ namespace CalculatorOne
         //Takes the two held numbers and performs chosen operation on them
         private void Equate()
         {
-            float tempHold;
+            decimal tempHold;
             switch (CurOp)
             {
                 case 1:
@@ -215,10 +223,17 @@ namespace CalculatorOne
                     RefreshDisplay();
                     break;
                 case 4:
-                    tempHold = HeldNumber;
-                    HeldNumber = lastHeldNumber / HeldNumber;
-                    lastHeldNumber = tempHold;
-                    RefreshDisplay();
+                    try
+                    {
+                        tempHold = HeldNumber;
+                        HeldNumber = lastHeldNumber / HeldNumber;
+                        lastHeldNumber = tempHold;
+                        RefreshDisplay();
+                    }
+                    catch (System.DivideByZeroException e)
+                    {
+                        Console.WriteLine("DIVIDE BY ZERO:  " + e.ToString());
+                    }
                     break;
                 case 5:
                     tempHold = HeldNumber;
@@ -372,7 +387,7 @@ namespace CalculatorOne
             GetBaseInputDigits();
         }
 
- private void BaseConvertBaseOutput_ValueChanged(object sender, EventArgs e)  
+         private void BaseConvertBaseOutput_ValueChanged(object sender, EventArgs e)  
          {  
              baseStartBase = (int)BaseConvertBaseOutput.Value;  
              while (countin);  
@@ -385,8 +400,79 @@ namespace CalculatorOne
    
                 }  
             }  
-        }  
+        }
 
+         private void Form1_KeyDown(object sender, KeyEventArgs e)
+         {
+             if (!displayTextBox.Focused)
+             {
+                 #region Keys
+                 switch (e.KeyCode)
+                 {
+                     case Keys.NumPad0:
+                         button0.PerformClick();
+                         break;
+                     case Keys.NumPad1:
+                         button1.PerformClick();
+                         break;
+                     case Keys.NumPad2:
+                         button2.PerformClick();
+                         break;
+                     case Keys.NumPad3:
+                         button3.PerformClick();
+                         break;
+                     case Keys.NumPad4:
+                         button4.PerformClick();
+                         break;
+                     case Keys.NumPad5:
+                         button5.PerformClick();
+                         break;
+                     case Keys.NumPad6:
+                         button6.PerformClick();
+                         break;
+                     case Keys.NumPad7:
+                         button7.PerformClick();
+                         break;
+                     case Keys.NumPad8:
+                         button8.PerformClick();
+                         break;
+                     case Keys.NumPad9:
+                         button9.PerformClick();
+                         break;
+                     case Keys.D0:
+                         button0.PerformClick();
+                         break;
+                     case Keys.D1:
+                         button1.PerformClick();
+                         break;
+                     case Keys.D2:
+                         button2.PerformClick();
+                         break;
+                     case Keys.D3:
+                         button3.PerformClick();
+                         break;
+                     case Keys.D4:
+                         button4.PerformClick();
+                         break;
+                     case Keys.D5:
+                         button5.PerformClick();
+                         break;
+                     case Keys.D6:
+                         button6.PerformClick();
+                         break;
+                     case Keys.D7:
+                         button7.PerformClick();
+                         break;
+                     case Keys.D8:
+                         button8.PerformClick();
+                         break;
+                     case Keys.D9:
+                         button9.PerformClick();
+                         break;
+                 }
+                 #endregion
+             }
+         }
 
     }
 }
