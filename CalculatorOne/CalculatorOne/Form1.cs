@@ -501,6 +501,15 @@ namespace CalculatorOne
                      case Keys.Divide:
                          buttonDiv.PerformClick();
                          break;
+                     case Keys.Decimal:
+                         buttonDecimal.PerformClick();
+                         break;
+                     case Keys.Enter:
+                         buttonEquals.PerformClick();
+                         break;
+                     case Keys.Space:
+                         buttonClear.PerformClick();
+                         break;
                  }
                  #endregion
              }
