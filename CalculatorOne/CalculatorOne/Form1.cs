@@ -392,7 +392,7 @@ namespace CalculatorOne
 
          private void Form1_KeyDown(object sender, KeyEventArgs e)
          {
-             if (!displayTextBox.Focused)
+             if (!displayTextBox.Focused && !BaseConvertInput.Focused && !BaseConvertBaseInput.Focused)
              {
                  #region Keys
                  switch (e.KeyCode)
@@ -456,6 +456,18 @@ namespace CalculatorOne
                          break;
                      case Keys.D9:
                          button9.PerformClick();
+                         break;
+                     case Keys.Add:
+                         buttonPlus.PerformClick();
+                         break;
+                     case Keys.Subtract:
+                         buttonMinus.PerformClick();
+                         break;
+                     case Keys.Multiply:
+                         buttonMult.PerformClick();
+                         break;
+                     case Keys.Divide:
+                         buttonDiv.PerformClick();
                          break;
                  }
                  #endregion
