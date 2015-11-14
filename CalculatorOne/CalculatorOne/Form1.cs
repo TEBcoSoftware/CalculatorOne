@@ -134,6 +134,12 @@ namespace CalculatorOne
             PerformOperation(5);
         }
 
+        private void buttonRecip_Click(object sender, EventArgs e)
+        {
+            PerformOperation(6);
+            Equate();
+        }
+
         private void buttonEquals_Click(object sender, EventArgs e)
         {
             Equate();
@@ -236,6 +242,19 @@ namespace CalculatorOne
                     HeldNumber = lastHeldNumber % HeldNumber;
                     lastHeldNumber = tempHold;
                     RefreshDisplay();
+                    break;
+                case 6:
+                    try
+                    {
+                        //tempHold = HeldNumber;
+                        HeldNumber = 1 / lastHeldNumber;
+                        //lastHeldNumber = tempHold;
+                        RefreshDisplay();
+                    }
+                    catch (System.DivideByZeroException e)
+                    {
+                        Console.WriteLine("DIVIDE BY ZERO:  " + e.ToString());
+                    }
                     break;
             }
             JustEquated = true;
@@ -513,6 +532,13 @@ namespace CalculatorOne
                  }
                  #endregion
              }
+         }
+
+         private void BaseConvertBaseInput_ValueChanged(object sender, EventArgs e)
+         {
+             GetBaseInputDigits();
+             ConvertToBaseTen();
+             BaseConvertOutput.Text = baseConvertionOutput.ToString();
          }
 
     }

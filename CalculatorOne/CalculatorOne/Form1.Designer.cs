@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
@@ -64,6 +65,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BaseConvertBaseInput = new System.Windows.Forms.NumericUpDown();
             this.BaseConvertInput = new System.Windows.Forms.TextBox();
+            this.buttonRecip = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BaseConvertBaseOutput)).BeginInit();
@@ -80,7 +82,14 @@
             // menuItem1
             // 
             this.menuItem1.Index = 0;
+            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem7});
             this.menuItem1.Text = "View";
+            // 
+            // menuItem7
+            // 
+            this.menuItem7.Index = 0;
+            this.menuItem7.Text = "Basic Mode";
             // 
             // menuItem2
             // 
@@ -99,6 +108,7 @@
             // menuItem6
             // 
             this.menuItem6.Index = 0;
+            this.menuItem6.Shortcut = System.Windows.Forms.Shortcut.F1;
             this.menuItem6.Text = "Help";
             this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
@@ -321,6 +331,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonRecip);
             this.groupBox1.Controls.Add(this.displayTextBox);
             this.groupBox1.Controls.Add(this.buttonMod);
             this.groupBox1.Controls.Add(this.button1);
@@ -404,6 +415,7 @@
             this.BaseConvertBaseInput.Size = new System.Drawing.Size(54, 20);
             this.BaseConvertBaseInput.TabIndex = 1;
             this.BaseConvertBaseInput.TabStop = false;
+            this.BaseConvertBaseInput.ValueChanged += new System.EventHandler(this.BaseConvertBaseInput_ValueChanged);
             // 
             // BaseConvertInput
             // 
@@ -412,6 +424,17 @@
             this.BaseConvertInput.Size = new System.Drawing.Size(179, 20);
             this.BaseConvertInput.TabIndex = 0;
             this.BaseConvertInput.TextChanged += new System.EventHandler(this.BaseConvertInput_TextChanged);
+            // 
+            // buttonRecip
+            // 
+            this.buttonRecip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonRecip.Location = new System.Drawing.Point(230, 159);
+            this.buttonRecip.Name = "buttonRecip";
+            this.buttonRecip.Size = new System.Drawing.Size(50, 50);
+            this.buttonRecip.TabIndex = 19;
+            this.buttonRecip.Text = "1/x";
+            this.buttonRecip.UseVisualStyleBackColor = true;
+            this.buttonRecip.Click += new System.EventHandler(this.buttonRecip_Click);
             // 
             // Form1
             // 
@@ -475,6 +498,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown BaseConvertBaseInput;
         private System.Windows.Forms.TextBox BaseConvertInput;
+        private System.Windows.Forms.MenuItem menuItem7;
+        private System.Windows.Forms.Button buttonRecip;
     }
 }
 
